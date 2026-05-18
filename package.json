@@ -1,0 +1,16 @@
+{
+  "name": "onscoring",
+  "version": "1.0.0",
+  "private": true,
+  "description": "볼링원 온스코어링 - 볼링장 관리 시스템",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

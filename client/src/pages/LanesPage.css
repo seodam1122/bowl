@@ -1,0 +1,148 @@
+.lane-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tb {
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  color: white;
+}
+
+.tb-gray { background: #64748b; }
+.tb-blue { background: #3b82f6; }
+.tb-green { background: #22c55e; }
+.tb-red { background: #ef4444; }
+.tb-yellow { background: #eab308; color: #1e293b; }
+
+.lane-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.lane-card {
+  background: white;
+  border-radius: 10px;
+  border-top: 4px solid var(--lane-waiting);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.lane-card.lane-active { border-top-color: var(--lane-active); }
+.lane-card.lane-paused { border-top-color: var(--lane-paused); }
+.lane-card.collapsed .player-list,
+.lane-card.collapsed .lane-meta,
+.lane-card.collapsed .lane-footer { display: none; }
+
+.lane-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.lane-header label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  flex: 1;
+}
+
+.lane-status {
+  font-size: 12px;
+  color: var(--gray-600);
+}
+
+.lane-mini {
+  background: transparent;
+  padding: 2px 8px;
+  color: var(--gray-600);
+}
+
+.lane-meta {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--gray-600);
+  align-items: center;
+}
+
+.power-btn {
+  margin-left: auto;
+  padding: 4px 10px;
+  font-size: 11px;
+  background: var(--gray-200);
+  border-radius: 4px;
+}
+
+.power-btn.on {
+  background: var(--success);
+  color: white;
+}
+
+.player-list {
+  list-style: none;
+  padding: 8px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.player-row {
+  display: grid;
+  grid-template-columns: 1fr 72px auto 36px auto auto;
+  gap: 4px;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 12px;
+}
+
+.player-name {
+  min-width: 0;
+  padding: 4px 6px;
+}
+
+.shoe-chk {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+}
+
+.game-cnt {
+  font-weight: 600;
+  text-align: center;
+}
+
+.btn-icon {
+  padding: 2px 8px;
+  background: var(--gray-200);
+  font-size: 14px;
+}
+
+.btn-icon.danger {
+  background: #fecaca;
+  color: var(--danger);
+}
+
+.lane-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px;
+  border-top: 1px solid var(--gray-100);
+}
+
+.lane-footer select {
+  flex: 1;
+  min-width: 80px;
+}
