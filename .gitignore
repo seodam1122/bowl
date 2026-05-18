@@ -4,4 +4,7 @@ server/data/
 manual_pages/
 *.db
 .env
+.env.local
+.env.*.local
+client/.next/
 .DS_Store

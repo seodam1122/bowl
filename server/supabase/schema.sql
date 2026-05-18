@@ -136,3 +136,40 @@ create table if not exists ads (
 create index if not exists idx_settlements_business_date on settlements(business_date);
 create index if not exists idx_lane_players_lane_id on lane_players(lane_id);
 create index if not exists idx_members_club_id on members(club_id);
+
+-- RLS (프론트 anon 키용 — 운영 시 Supabase Auth + 세분화 정책 권장)
+alter table business_days enable row level security;
+alter table fee_settings enable row level security;
+alter table lanes enable row level security;
+alter table lane_players enable row level security;
+alter table lockers enable row level security;
+alter table clubs enable row level security;
+alter table members enable row level security;
+alter table tournaments enable row level security;
+alter table tournament_participants enable row level security;
+alter table settlements enable row level security;
+alter table daily_closings enable row level security;
+alter table settings enable row level security;
+alter table notices enable row level security;
+alter table ads enable row level security;
+
+do $$ declare t text; begin
+  foreach t in array array[
+    'business_days','fee_settings','lanes','lane_players','lockers','clubs','members',
+    'tournaments','tournament_participants','settlements','daily_closings','settings','notices','ads'
+  ] loop
+    execute format('drop policy if exists allow_anon_all on %I', t);
+    execute format(
+      'create policy allow_anon_all on %I for all to anon using (true) with check (true)',
+      t
+    );
+  end loop;
+end $$;
+
+-- 초기 레인 (1~16)
+insert into lanes (id, status) values
+  (1,'waiting'),(2,'waiting'),(3,'waiting'),(4,'waiting'),
+  (5,'waiting'),(6,'waiting'),(7,'waiting'),(8,'waiting'),
+  (9,'waiting'),(10,'waiting'),(11,'waiting'),(12,'waiting'),
+  (13,'waiting'),(14,'waiting'),(15,'waiting'),(16,'waiting')
+on conflict (id) do nothing;

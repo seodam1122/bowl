@@ -1,0 +1,15 @@
+# Render.com → New → Blueprint → 이 저장소 연결
+services:
+  - type: web
+    name: onscoring-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: NODE_VERSION
+        value: "20"
