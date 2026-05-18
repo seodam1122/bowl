@@ -38,14 +38,17 @@ http://localhost:3000
 
 ## Vercel 배포
 
-Environment Variables:
+1. Vercel 프로젝트 → **Settings** → **General** → **Root Directory** → `client` 입력 후 저장
+2. **Environment Variables** (Production / Preview):
 
 | Name | Value |
 |------|--------|
 | `NEXT_PUBLIC_SUPABASE_URL` | Project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | anon public |
 
-루트 `vercel.json`이 `client` 폴더의 Next.js 앱을 빌드합니다.
+3. **Redeploy** (환경 변수·Root Directory 변경 후 필수)
+
+Next.js 앱은 `client/package.json`에 있습니다. Root Directory를 비워 두면 `No Next.js version detected` 오류가 납니다.
 
 ## 기술 스택
 
