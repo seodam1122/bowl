@@ -39,14 +39,16 @@ http://localhost:3000
 ## Vercel 배포
 
 1. Vercel 프로젝트 → **Settings** → **General** → **Root Directory** → `client` 입력 후 저장
-2. **Environment Variables** (Production / Preview):
+2. **Environment Variables** — **Production**과 **Preview** 모두 체크:
 
 | Name | Value |
 |------|--------|
-| `NEXT_PUBLIC_SUPABASE_URL` | Project URL |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | anon public |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase → Settings → API → **Project URL** |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | **anon** `public` 키 (JWT `eyJ...` 형태) |
 
-3. **Redeploy** (환경 변수·Root Directory 변경 후 필수)
+`SUPABASE_SERVICE_ROLE_KEY`는 프론트 배포에 **필요 없습니다** (서버 `server/` 전용). anon 키에 넣지 마세요.
+
+3. 변수 저장 후 **Deployments → Redeploy** (환경 변수는 재배포해야 반영됩니다)
 
 Next.js 앱은 `client/package.json`에 있습니다. Root Directory를 비워 두면 `No Next.js version detected` 오류가 납니다.
 

@@ -4,6 +4,7 @@ import { Noto_Sans_KR } from 'next/font/google';
 export const dynamic = 'force-dynamic';
 import SidebarLayout from '@/components/SidebarLayout';
 import ClientInit from '@/components/ClientInit';
+import SupabaseEnvScript from '@/components/SupabaseEnvScript';
 import '@/app/globals.css';
 
 const notoSans = Noto_Sans_KR({
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko">
       <body className={notoSans.className}>
+        <SupabaseEnvScript />
         <ClientInit />
         <SidebarLayout>{children}</SidebarLayout>
       </body>
