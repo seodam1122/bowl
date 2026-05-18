@@ -38,7 +38,8 @@ http://localhost:3000
 
 ## Vercel 배포
 
-1. Vercel 프로젝트 → **Settings** → **General** → **Root Directory** → `client` 입력 후 저장
+1. Vercel 프로젝트 → **Settings** → **Build and Deployment** → 아래로 스크롤 → **Root Directory** → `client` 입력 → **Save**  
+   (Settings 상단 검색창에 `Root Directory` 입력해도 이동됩니다. **General** 탭에는 없습니다.)
 2. **Environment Variables** — **Production**과 **Preview** 모두 체크:
 
 | Name | Value |
